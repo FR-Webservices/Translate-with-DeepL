@@ -2,7 +2,7 @@
 	"manifest_version": 2,
 	"name": "Translate with DeepL",
 	"short_name": "TranslationWithDeepl",
-	"version": "1.0.0",
+	"version": "1.0.2",
 	"description": "This is a little Chrome extension to translate selected text from any website with DeepL.",
 	"author": "Florian Rusch",
 	"icons": {
