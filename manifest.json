@@ -1,34 +1,35 @@
 {
-  "manifest_version": 2,
-  "name": "DeepL Opener",
-  "short_name": "DeeplO",
-  "version": "0.0.1",
-  "description": "This extension opens Linguee's DeepL service to provide translations",
-  "author": "Florian Rusch",
-  "icons": {
-    "16": "icons/icon16.png",
-    "32": "icons/icon32.png",
-    "48": "icons/icon48.png",
-    "96": "icons/icon96.png",
-    "128": "icons/icon128.png"
-  },
-  "browser_action": {
-    "default_title": "DeepL Opener",
-    "default_icon": {
-      "16": "icons/icon16.png",
-      "20": "icons/icon20.png",
-      "24": "icons/icon24.png",
-      "25": "icons/icon25.png",
-      "30": "icons/icon30.png",
-      "32": "icons/icon32.png",
-      "40": "icons/icon40.png"
-    }
-  },
-  "background": {
-    "scripts": ["background.js"]
-  },
-  "permissions": [
-    "activeTab",
-    "contextMenus"
-  ]
+	"manifest_version": 2,
+	"name": "Translate with DeepL",
+	"short_name": "TranslationWithDeepl",
+	"version": "1.0.0",
+	"description": "This is a little Chrome extension to translate selected text from any website with DeepL.",
+	"author": "Florian Rusch",
+	"icons": {
+		"16": "icons/icon16.png",
+		"32": "icons/icon32.png",
+		"48": "icons/icon48.png",
+		"96": "icons/icon96.png",
+		"128": "icons/icon128.png"
+	},
+	"browser_action": {
+		"default_title": "Translate with DeepL",
+		"default_icon": {
+			"16": "icons/icon16.png",
+			"20": "icons/icon20.png",
+			"24": "icons/icon24.png",
+			"25": "icons/icon25.png",
+			"30": "icons/icon30.png",
+			"32": "icons/icon32.png",
+			"40": "icons/icon40.png"
+		}
+	},
+	"background": {
+		"scripts": [ "background.js" ],
+		"persistent": false
+	},
+	"permissions": [
+		"activeTab",
+		"contextMenus"
+	]
 }

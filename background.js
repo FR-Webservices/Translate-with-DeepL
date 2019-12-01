@@ -1,22 +1,30 @@
 'use strict';
-const ua = typeof browser === 'undefined'? chrome : browser;
 
-const openTab = (trigger, selectedText = null) => {
-	console.info(`openTab: ${trigger}`);
+const contextMenuID = 'frw-translateWithDeepL'
+const deeplURL = "https://www.deepl.com/translator#en/de/"
+const ua = typeof browser === 'undefined'? chrome : browser
 
-	chrome.tabs.executeScript( {
-		code: "window.getSelection().toString();"
-	}, function(selection) {
-		var newURL = "https://www.deepl.com/translator#en/de/" + encodeURI(selection);
-		chrome.tabs.create({ url: newURL });
-	});
+const openTab = (info, tab) => {
+	if (info.menuItemId === contextMenuID) {
+		chrome.tabs.executeScript( {
+			code: "window.getSelection().toString();"
+		}, function(selection) {
+
+			if (selection.length <= 0) {
+				alert("Please select some text which should be translated with DeepL.")
+				return
+			}
+
+			const newURL = deeplURL + encodeURI(selection)
+			chrome.tabs.create({ url: newURL })
+		})
+	}
 }
 
-ua.browserAction.onClicked.addListener(ev => openTab('buttonClicked'));
-
 ua.contextMenus.create({
-	id: 'deeptransLate',
+	id: contextMenuID,
 	title: 'Translate with DeepL',
-	contexts: ['all'],
-	onclick: (info, tab) => openTab('menuClicked')
-});
+	contexts: ['selection'],
+})
+
+ua.contextMenus.onClicked.addListener(openTab)
